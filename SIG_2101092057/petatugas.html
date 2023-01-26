@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>peta tugas (petatugas)</title>
+    <link rel="stylesheet" type="text/css"" href="leaflet.css"/>
+    <script type="text/javascript" src="leaflet.js"></script>
+</head>
+<body>
+    <div id="mapku" style="width: 100%; height: 600px;"></div>
+</body>
+<script type="text/javascript">
+     var mymap = L.map('mapku').setView([-0.9369187988657657, 100.36083721510761],17);
+    
+     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom:18,
+        id:'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    L.marker([-0.9028375801843596, 100.36366738356531],17).bindTooltip("BANK MANDIRI KCP SITEBA").addTo(mymap); //SMA Negeri 15 Padang
+    L.marker([-0.9399503925091472, 100.40009820987886],17).bindTooltip("BANK MANDIRI KCP PAUH").addTo(mymap); // SMA Negeri 16 Padang
+    L.marker([-0.9369187988657657, 100.36083721510761],17).bindTooltip("BANK MANDIRI PRIORITAS PADANG").addTo(mymap); // SMA Negeri 5 Padang
+    L.marker([-0.9441484877772395, 100.35498769006207],17).bindTooltip("BANK MANDIRI OLO").addTo(mymap); // SMA Negeri 4 Padang
+    L.marker([-0.9457307734820606, 100.36317785530912],17).bindTooltip("BANK MANDIRI KCP SUDIRMAN").addTo(mymap); // SMA Negeri 6 Padang
+    L.marker([-0.9550850312667195, 100.35622556984842],17).bindTooltip("BANK MANDIRI KCP TAMAN MELATI").addTo(mymap); // SMA Negeri 10 Padang
+    L.marker([-0.9505366338611766, 100.36412199281794],17).bindTooltip("BANK MANDIRI KCP IMAM BONJOL").addTo(mymap); // SMA Negeri 9 Padang
+    L.marker([-0.9424696501611226, 100.37364919879204],17).bindTooltip("BANK MANDIRI KCP KOMPLEK PERUMAHAN").addTo(mymap); // SMA Negeri 12 Padang
+    L.marker([-0.9451568588870095, 100.35753427236],17).bindTooltip("BANK MANDIRI BELAKANG OLO").addTo(mymap); // SMA Negeri 13 Padang
+    L.marker([-0.947903066105636, 100.36294160568775],17).bindTooltip("BANK MANDIRI BAGINDO AZIZ").addTo(mymap); // SMA Negeri 1 Padang
+
+
+
+
+   
+
+    var info_sma15 = '<p style="text-align: center;"> <img src="https://lh5.googleusercontent.com/p/AF1QipMNcpbmlGiLTO1C1lDMsUHiCRQpcljxHCdKR2P1=w408-h306-k-no" width="250px" height="100px"></p><p>BANK MANDIRI KCP SITEBA.</p>';
+    L.marker([-0.9077332853676606, 100.44440492119863],17).bindTooltip("SMA Negeri 15 Padang").bindPopup(info_sma15).addTo(mymap); //masjid Raya
+
+    var info_sma16 = '<p style="text-align: center;"> <img src="https://cl-static-v3.padangkita.com/wp-content/uploads/2020/09/kantor-gubernur.jpg" width="250px" height="100px"></p><p>Kantor Gubernur Prov. Sumatera Barat yang terletak di Jalan. Sudirman Padang, mulai dibangun pada tahun1961 atas gagasan dan prakarsa Gubernur Sumbar pada saat itu alm. Kaharoeddin Dt. Rangkayo Basa untuk mengembalikan "batang tarandam", jati diri dan eksistensi masyarakat Minang yang terpuruk setelah peristiwa PRRI.</p>';
+    L.marker([-0.9019685794366737, 100.41804869466155],17).bindTooltip("SMA Negeri 16 Padang").bindPopup(info_sma16).addTo(mymap); //kantor gubernur
+
+
+    var info_masjid_raya = '<p style="text-align: center;"> <iframe width="250px" height="100px"src="https://www.youtube.com/embed/aqW5KASLztQ" frameborder="0"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;picture-in-picture" allowfullscreen></iframe></p><p style="text-align: justify;">Masjid ini berada di Jalan Khatib Sulaiman, Alai Parak Kopi, Padang Utara dan dibangun di atas lahan seluas 0 ribu meter persegi, dengan luas bangunan mencapai 18 ribu meter persegi. Tak serupa masjid pada umumnya, masjid ini justru tak memiliki kubah, melainkan hanya memiliki atap khas budaya Minangkabau. Bagian atapnya memiliki desain Rumah Gadang dengan empat sudut lancip, sedangkan bangunannya berbentuk gonjong.</p>';
+    L.marker([-0.9241358328363046, 100.36245736766848],17).bindTooltip("Masjid Raya Sumatera Barat").bindPopup(info_masjid_raya).addTo(mymap);
+
+
+    
+
+    var popup = L.popup()
+        .setLatLng(e.latlng)
+        .setContent('you clicked the map at'+ e.latlng.toString())
+        .openOn(mymap);
+
+    var LeafIcon = L.Icon.extend({
+        options: {
+            iconSize: [36,36]
+        }
+    });
+
+    var bankicon = new LeafIcon({iconUrl: "images/bank.png"});
+
+    L.marker([-0.9241358328363046, 100.36245736766848],{icon: bankicon}).addTo(mymap);
+
+</script>
+</html>
